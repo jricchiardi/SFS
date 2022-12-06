@@ -1,0 +1,186 @@
+2022-07-08 04:20:37 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[01003]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Warning: Null value is eliminated by an aggregate or other SET operation. in D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Command.php:781
+Stack trace:
+#0 D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Command.php(781): PDOStatement->execute()
+#1 D:\sites\dow.forecast\console\controllers\JobController.php(88): yii\db\Command->execute()
+#2 [internal function]: console\controllers\JobController->actionCreateSisReport()
+#3 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#5 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Controller.php(91): yii\base\Controller->runAction('create-sis-repo...', Array)
+#6 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Module.php(455): yii\console\Controller->runAction('create-sis-repo...', Array)
+#7 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(167): yii\base\Module->runAction('job/create-sis-...', Array)
+#8 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(143): yii\console\Application->runAction('job/create-sis-...', Array)
+#9 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 D:\sites\dow.forecast\yii(31): yii\base\Application->run()
+#11 {main}
+
+Next yii\db\Exception: SQLSTATE[01003]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Warning: Null value is eliminated by an aggregate or other SET operation.
+The SQL being executed was: EXEC SP_Run_Sis_Report in D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Command.php(791): yii\db\Schema->convertException(Object(PDOException), 'EXEC SP_Run_Sis...')
+#1 D:\sites\dow.forecast\console\controllers\JobController.php(88): yii\db\Command->execute()
+#2 [internal function]: console\controllers\JobController->actionCreateSisReport()
+#3 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#5 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Controller.php(91): yii\base\Controller->runAction('create-sis-repo...', Array)
+#6 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Module.php(455): yii\console\Controller->runAction('create-sis-repo...', Array)
+#7 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(167): yii\base\Module->runAction('job/create-sis-...', Array)
+#8 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(143): yii\console\Application->runAction('job/create-sis-...', Array)
+#9 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 D:\sites\dow.forecast\yii(31): yii\base\Application->run()
+#11 {main}
+Additional Information:
+Array
+(
+    [0] => 01003
+    [1] => 8153
+    [2] => [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Warning: Null value is eliminated by an aggregate or other SET operation.
+)
+
+2022-07-08 04:16:24 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\yih193\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ARVCL1AS001'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\yih193'
+    'LOCALAPPDATA' => 'C:\\Users\\yih193\\AppData\\Local'
+    'LOGONSERVER' => '\\\\USZJS2DC001'
+    'NUMBER_OF_PROCESSORS' => '5'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files\\avs\\bin;C:\\Program Files\\avs\\bin32;C:\\Program Files (x86)\\PHP\\v7.1;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\dotnet\\;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PhiLastAdminScript' => '5/1/2022 1:36:51 AM'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 85 Stepping 4, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '5504'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => '%ProgramFiles%\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\PowerShell\\Modules\\;C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\PowerShell\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\yih193\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\yih193\\AppData\\Local\\Temp'
+    'USERDNSDOMAIN' => 'PHIBRED.COM'
+    'USERDOMAIN' => 'PHIBRED'
+    'USERDOMAIN_ROAMINGPROFILE' => 'PHIBRED'
+    'USERNAME' => 'yih193'
+    'USERPROFILE' => 'C:\\Users\\yih193'
+    'windir' => 'C:\\Windows'
+    'YII_PATH' => 'D:\\sites\\dow.forecast\\'
+    'PHP_SELF' => 'D:\\sites\\dow.forecast\\yii'
+    'SCRIPT_NAME' => 'D:\\sites\\dow.forecast\\yii'
+    'SCRIPT_FILENAME' => 'D:\\sites\\dow.forecast\\yii'
+    'PATH_TRANSLATED' => 'D:\\sites\\dow.forecast\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1657253784.9024
+    'REQUEST_TIME' => 1657253784
+    'argv' => [
+        0 => 'D:\\sites\\dow.forecast\\yii'
+        1 => 'job/create-sis-report'
+        2 => '--show-output'
+    ]
+    'argc' => 3
+]
+2022-08-28 08:17:55 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[01003]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Warning: Null value is eliminated by an aggregate or other SET operation. in D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Command.php:781
+Stack trace:
+#0 D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Command.php(781): PDOStatement->execute()
+#1 D:\sites\dow.forecast\console\controllers\JobController.php(88): yii\db\Command->execute()
+#2 [internal function]: console\controllers\JobController->actionCreateSisReport()
+#3 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#5 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Controller.php(91): yii\base\Controller->runAction('create-sis-repo...', Array)
+#6 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Module.php(455): yii\console\Controller->runAction('create-sis-repo...', Array)
+#7 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(167): yii\base\Module->runAction('job/create-sis-...', Array)
+#8 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(143): yii\console\Application->runAction('job/create-sis-...', Array)
+#9 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 D:\sites\dow.forecast\yii(31): yii\base\Application->run()
+#11 {main}
+
+Next yii\db\Exception: SQLSTATE[01003]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Warning: Null value is eliminated by an aggregate or other SET operation.
+The SQL being executed was: EXEC SP_Run_Sis_Report in D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\sites\dow.forecast\vendor\yiisoft\yii2\db\Command.php(791): yii\db\Schema->convertException(Object(PDOException), 'EXEC SP_Run_Sis...')
+#1 D:\sites\dow.forecast\console\controllers\JobController.php(88): yii\db\Command->execute()
+#2 [internal function]: console\controllers\JobController->actionCreateSisReport()
+#3 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#5 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Controller.php(91): yii\base\Controller->runAction('create-sis-repo...', Array)
+#6 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Module.php(455): yii\console\Controller->runAction('create-sis-repo...', Array)
+#7 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(167): yii\base\Module->runAction('job/create-sis-...', Array)
+#8 D:\sites\dow.forecast\vendor\yiisoft\yii2\console\Application.php(143): yii\console\Application->runAction('job/create-sis-...', Array)
+#9 D:\sites\dow.forecast\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 D:\sites\dow.forecast\yii(31): yii\base\Application->run()
+#11 {main}
+Additional Information:
+Array
+(
+    [0] => 01003
+    [1] => 8153
+    [2] => [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Warning: Null value is eliminated by an aggregate or other SET operation.
+)
+
+2022-08-28 08:16:26 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\yih193\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ARVCL1AS001'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\yih193'
+    'LOCALAPPDATA' => 'C:\\Users\\yih193\\AppData\\Local'
+    'LOGONSERVER' => '\\\\USZJS2DC001'
+    'NUMBER_OF_PROCESSORS' => '5'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files\\avs\\bin;C:\\Program Files\\avs\\bin32;C:\\Program Files (x86)\\PHP\\v7.1;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\dotnet\\;C:\\Program Files (x86)\\dotnet\\;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\lxi689\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\lxi689\\AppData\\Roaming\\Composer\\vendor\\bin;'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PhiLastAdminScript' => '5/1/2022 1:36:51 AM'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 85 Stepping 4, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '5504'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => '%ProgramFiles%\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\PowerShell\\Modules\\;C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\PowerShell\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\yih193\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\yih193\\AppData\\Local\\Temp'
+    'USERDNSDOMAIN' => 'PHIBRED.COM'
+    'USERDOMAIN' => 'PHIBRED'
+    'USERDOMAIN_ROAMINGPROFILE' => 'PHIBRED'
+    'USERNAME' => 'yih193'
+    'USERPROFILE' => 'C:\\Users\\yih193'
+    'windir' => 'C:\\Windows'
+    'YII_PATH' => 'D:\\sites\\dow.forecast\\'
+    'PHP_SELF' => 'D:\\sites\\dow.forecast\\yii'
+    'SCRIPT_NAME' => 'D:\\sites\\dow.forecast\\yii'
+    'SCRIPT_FILENAME' => 'D:\\sites\\dow.forecast\\yii'
+    'PATH_TRANSLATED' => 'D:\\sites\\dow.forecast\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1661674586.8827
+    'REQUEST_TIME' => 1661674586
+    'argv' => [
+        0 => 'D:\\sites\\dow.forecast\\yii'
+        1 => 'job/create-sis-report'
+        2 => '--show-output'
+    ]
+    'argc' => 3
+]
