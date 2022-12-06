@@ -38,14 +38,14 @@ use Yii;
  * @property string $TotalForecastMoreSaleUSD
  * @property integer $Profit
  */
-class TableResume extends \yii\db\ActiveRecord
+class TempGraficoUno extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'TableResume';
+        return 'TEMP_GRAFICO_1';
     }
 
     /**

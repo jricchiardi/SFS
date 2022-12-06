@@ -10,21 +10,21 @@ $util = Yii::$app->utilcomponents;
 <div class="row">
     <?= $this->render('_alert_dates_imports', ['results' => $results]) ?>
 
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-3">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-3">	
         <div class="panel panel-default">
             <div class="panel-heading"><?=Yii::t('app', 'Filters') ?></div>
             <div class="panel-body">
-                <?php $form = ActiveForm::begin();
-
-
-                ?>
+                <?php $form = ActiveForm::begin(); 
+                
+              
+                ?>       
                 <?= $form->field($dashBoardFilter, 'QuarterId') ?>
                 <?= $form->field($dashBoardFilter, 'ValueCenterId') ?>
                 <?= $form->field($dashBoardFilter, 'PerformanceCenterId') ?>
-                <?= $form->field($dashBoardFilter, 'TradeProductId') ?>
+                <?= $form->field($dashBoardFilter, 'TradeProductId') ?>                
                 <?php if (!\Yii::$app->user->can(common\models\AuthItem::ROLE_RSM) && !\Yii::$app->user->can(common\models\AuthItem::ROLE_DSM) && !\Yii::$app->user->can(common\models\AuthItem::ROLE_SELLER)) : ?>
                     <?= $form->field($dashBoardFilter, 'RsmId') ?>
-                <?php endif; ?>
+                <?php endif; ?> 
                 <?php if (!\Yii::$app->user->can(common\models\AuthItem::ROLE_DSM) && !\Yii::$app->user->can(common\models\AuthItem::ROLE_SELLER)) : ?>
                     <?= $form->field($dashBoardFilter, 'DsmId') ?>
                 <?php endif; ?>
@@ -36,24 +36,24 @@ $util = Yii::$app->utilcomponents;
                 <?= $form->field($dashBoardFilter, 'ClientId') ?>
 
                 <button type="submit" class="btn btn-primary btn-nuevo-reclamo pull-right"><?=Yii::t('app','Search') ?></button>
-                <?php ActiveForm::end(); ?>
+                <?php ActiveForm::end(); ?>          
             </div>
         </div>
     </div>
 
 
-    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 pull-left">
+    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 pull-left">         
         <div class="box">
             <div id="containerValues" />   </div>
     </div>
 </div>
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-right">
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-right">         
     <div class="box" style="height:325px">
         <h2><b><?=Yii::t('app','APPROXIMATE RANGE FORECAST') ?></b></h2>
         <span style=" position:relative; top:60px; font-size: 100px"><?= number_format($results['profit'], 2) ?> % </span></div>
 </div>
 
-<div class="col-xs-8 col-sm-8 col-md-8 col-lg-9">
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-9">      		
     <table  class="table table-striped table-bordered">
         <thead>
             <tr>
@@ -61,8 +61,8 @@ $util = Yii::$app->utilcomponents;
                 <th colspan="2"><center><h4>Q1</h4></center></th>
         <th colspan="2"><center><h4>Q2</h4></center></th>
         <th colspan="2"><center><h4>Q3</h4></center></th>
-        <th colspan="2"><center><h4>Q4</h4></center></th>
-        <th colspan="2"><center><h4><?=Yii::t('app','Total') ?></h4></center></th>
+        <th colspan="2"><center><h4>Q4</h4></center></th>                                        
+        <th colspan="2"><center><h4><?=Yii::t('app','Total') ?></h4></center></th>    
         </tr>
         <tr>
             <th></th>
@@ -81,19 +81,19 @@ $util = Yii::$app->utilcomponents;
         </thead>
         <tbody>
             <tr>
-                <td class="greenmedium"><?=Yii::t('app','Plan') ?></td>
-                <?php if (isset($results['resume']['TotalPlanVolume'])) :
-                    ?>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q1PlanVolume']) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q1PlanUSD'], 2) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q2PlanVolume']) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q2PlanUSD'], 2) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q3PlanVolume']) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q3PlanUSD'], 2) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q4PlanVolume']) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['Q4PlanUSD'], 2) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['TotalPlanVolume']) ?> </td>
-                    <td class="greenmedium"><?= number_format($results['resume']['TotalPlanUSD'], 2) ?> </td>
+                <td class="greenmedium"><?=Yii::t('app','Plan') ?></td>  
+                <?php if (isset($results['resume']['TotalPlanVolume'])) :                                               
+                    ?>    
+                    <td class="greenmedium"><?= number_format($results['resume']['Q1PlanVolume']) ?> </td>             
+                    <td class="greenmedium"><?= number_format($results['resume']['Q1PlanUSD'], 2) ?> </td> 
+                    <td class="greenmedium"><?= number_format($results['resume']['Q2PlanVolume']) ?> </td>             
+                    <td class="greenmedium"><?= number_format($results['resume']['Q2PlanUSD'], 2) ?> </td> 
+                    <td class="greenmedium"><?= number_format($results['resume']['Q3PlanVolume']) ?> </td>             
+                    <td class="greenmedium"><?= number_format($results['resume']['Q3PlanUSD'], 2) ?> </td> 
+                    <td class="greenmedium"><?= number_format($results['resume']['Q4PlanVolume']) ?> </td>             
+                    <td class="greenmedium"><?= number_format($results['resume']['Q4PlanUSD'], 2) ?> </td> 
+                    <td class="greenmedium"><?= number_format($results['resume']['TotalPlanVolume']) ?> </td> 
+                    <td class="greenmedium"><?= number_format($results['resume']['TotalPlanUSD'], 2) ?> </td>                                         
                     <?php
                 else :
                     for ($x = 0; $x <= 9; $x++) :
@@ -104,18 +104,18 @@ $util = Yii::$app->utilcomponents;
                 <?php endif; ?>
             </tr>
             <tr>
-                <td class="bluemedium"><?=Yii::t('app','Forecast + Sales') ?></td>
-                <?php if (isset($results['resume']['TotalForecastMoreSaleVolume'])) : ?>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q1ForecastMoreSaleVolume']) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q1ForecastMoreSaleUSD'], 2) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q2ForecastMoreSaleVolume']) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q2ForecastMoreSaleUSD'], 2) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q3ForecastMoreSaleVolume']) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q3ForecastMoreSaleUSD'], 2) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q4ForecastMoreSaleVolume']) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['Q4ForecastMoreSaleUSD'], 2) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['TotalForecastMoreSaleVolume']) ?> </td>
-                    <td class="bluemedium"><?= number_format($results['resume']['TotalForecastMoreSaleUSD'], 2) ?> </td>
+                <td class="bluemedium"><?=Yii::t('app','Forecast + Sales') ?></td>  
+                <?php if (isset($results['resume']['TotalForecastMoreSaleVolume'])) : ?>   
+                    <td class="bluemedium"><?= number_format($results['resume']['Q1ForecastMoreSaleVolume']) ?> </td>             
+                    <td class="bluemedium"><?= number_format($results['resume']['Q1ForecastMoreSaleUSD'], 2) ?> </td> 
+                    <td class="bluemedium"><?= number_format($results['resume']['Q2ForecastMoreSaleVolume']) ?> </td>             
+                    <td class="bluemedium"><?= number_format($results['resume']['Q2ForecastMoreSaleUSD'], 2) ?> </td> 
+                    <td class="bluemedium"><?= number_format($results['resume']['Q3ForecastMoreSaleVolume']) ?> </td>             
+                    <td class="bluemedium"><?= number_format($results['resume']['Q3ForecastMoreSaleUSD'], 2) ?> </td> 
+                    <td class="bluemedium"><?= number_format($results['resume']['Q4ForecastMoreSaleVolume']) ?> </td>             
+                    <td class="bluemedium"><?= number_format($results['resume']['Q4ForecastMoreSaleUSD'], 2) ?> </td> 
+                    <td class="bluemedium"><?= number_format($results['resume']['TotalForecastMoreSaleVolume']) ?> </td> 
+                    <td class="bluemedium"><?= number_format($results['resume']['TotalForecastMoreSaleUSD'], 2) ?> </td>                                         
                     <?php
                 else :
                     for ($x = 0; $x <= 9; $x++) :
@@ -125,22 +125,22 @@ $util = Yii::$app->utilcomponents;
                     <?php endfor; ?>
                 <?php endif; ?>
             </tr>
-            <?php if (isset($results['resume']['TotalCyOVolume']) && $results['resume']['TotalCyOVolume'] > 0) : ?>
+            <?php if (isset($results['resume']['TotalCyOVolume']) && $results['resume']['TotalCyOVolume'] > 0) : ?> 
                 <tr>
-                    <td class="yellowmedium">Cyo</td>
+                    <td class="yellowmedium">Cyo</td>  
                     <td class="yellowmedium" colspan="8"></td>
-                    <td class="yellowmedium"><?= number_format((int)$results['resume']['TotalCyOVolume']) ?> </td>
+                    <td class="yellowmedium"><?= number_format((int)$results['resume']['TotalCyOVolume']) ?> </td>                                         
                     <td class="yellowmedium"><?= number_format($results['resume']['TotalCyOUSD'], 2) ?> </td>
 
                 </tr>
-            <?php endif; ?>
+            <?php endif; ?>  
         </tbody>
     </table>
 
 </div>
-<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 pull-right">
+<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 pull-right">      
     <div class="box">
-        <div id="containerSales" />
+        <div id="containerSales" />      
     </div>
 </div>
 </div>
@@ -325,8 +325,8 @@ $util = Yii::$app->utilcomponents;
             ->queryAll()) ?>
             }
     });
-         $("#filterdashboard-quarterid").kendoDropDownList({
-            optionLabel: "<?=Yii::t('app','Select') ?>",
+         $("#filterdashboard-quarterid").kendoDropDownList({    
+            optionLabel: "<?=Yii::t('app','Select') ?>",            
             filter: "startswith",
             dataTextField: "text",
             dataValueField: "value",
@@ -334,7 +334,7 @@ $util = Yii::$app->utilcomponents;
             data: [{'value':'Q1','text':'Q1'},{'value':'Q2','text':'Q2'},{'value':'Q3','text':'Q3'},{'value':'Q4','text':'Q4'}]
             }
     });
-
+    
     });
 </script>
 

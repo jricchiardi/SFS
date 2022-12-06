@@ -117,6 +117,12 @@ class Campaign extends \yii\db\ActiveRecord {
 
         return $campaigns;
     }
+	
+	public function getFive() {
+        $campaigns = Campaign::find()->where(['in', 'CampaignId', [9,10,11,12,13,14]])->orderBy('Name ASC')->asArray()->all();
+
+        return $campaigns;
+    }
 
     public function validateFuture() {
         $campaignFuture = Campaign::findOne(['IsFuture' => true]);

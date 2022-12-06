@@ -41,7 +41,7 @@ class DashBoardComponent extends Component implements IDashBoard
         $results['campaigns'] = Campaign::getAll($dashBoardFilter);
         $results['sales'] = Sale::getDashHistorySales($dashBoardFilter);
         $results['distribution'] = Forecast::getDashDistribution($dashBoardFilter);
-        $results['resume'] = Forecast::getDashTableResume($dashBoardFilter);
+        $results['resume'] = Forecast::getTempGrafico1($dashBoardFilter);
         $results['profit'] = Forecast::getDashProfit($dashBoardFilter);
 
         return $results;
