@@ -147,7 +147,7 @@ class Forecast extends \yii\db\ActiveRecord {
                     'TradeProductId' => $dashBoardFilter->TradeProductId,
                     'PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId,
                     'ValueCenterId' => $dashBoardFilter->ValueCenterId,
-                    'CampaignId' => $dashBoardFilter->CampaignId,
+                    'CampaignId'  => $dashBoardFilter->CampaignId,
                     'ClientId'=>$dashBoardFilter->ClientId])
                 ->groupBy(['CampaignId'])
                 ->asArray()
@@ -158,84 +158,169 @@ class Forecast extends \yii\db\ActiveRecord {
 
         return isset($resume[0]) ? $resume[0] : [];
     }
+	
+	public function getTempGrafico1($dashBoardFilter) {
+	
+		$results = array();
+
+        /* FORECAST + VTAS  */
+
+        $resume = TempGraficoUno::find()->select(
+            ['CampaignId',
+                    'SUM(Q1ForecastMoreSaleVolume) AS Q1ForecastMoreSaleVolume',
+                    'SUM(Q2ForecastMoreSaleVolume) AS Q2ForecastMoreSaleVolume',
+                    'SUM(Q3ForecastMoreSaleVolume) AS Q3ForecastMoreSaleVolume',
+                    'SUM(Q4ForecastMoreSaleVolume) AS Q4ForecastMoreSaleVolume',
+                    'SUM(Q1ForecastMoreSaleUSD) AS Q1ForecastMoreSaleUSD',
+                    'SUM(Q2ForecastMoreSaleUSD) AS Q2ForecastMoreSaleUSD',
+                    'SUM(Q3ForecastMoreSaleUSD) AS Q3ForecastMoreSaleUSD',
+                    'SUM(Q4ForecastMoreSaleUSD) AS Q4ForecastMoreSaleUSD',
+                    'SUM(Q1PlanVolume) AS Q1PlanVolume',
+                    'SUM(Q2PlanVolume) AS Q2PlanVolume',
+                    'SUM(Q3PlanVolume) AS Q3PlanVolume',
+                    'SUM(Q4PlanVolume) AS Q4PlanVolume',
+                    'SUM(Q1PlanUSD) AS Q1PlanUSD',
+                    'SUM(Q2PlanUSD) AS Q2PlanUSD',
+                    'SUM(Q3PlanUSD) AS Q3PlanUSD',
+                    'SUM(Q4PlanUSD) AS Q4PlanUSD',
+                    'SUM(TotalPlanVolume) AS TotalPlanVolume',
+                    'SUM(TotalPlanUSD) AS TotalPlanUSD',
+                    'SUM(TotalCyOVolume) AS TotalCyOVolume',
+                    'SUM(TotalCyOUSD) AS TotalCyOUSD ',
+                    'SUM(TotalForecastMoreSaleVolume) AS TotalForecastMoreSaleVolume',
+                    'SUM(TotalForecastMoreSaleUSD) AS TotalForecastMoreSaleUSD'
+                ]
+        )
+		->andFilterWhere(['SellerId' => $dashBoardFilter->SellerId,
+                    'RsmId' => $dashBoardFilter->RsmId,
+                    'DsmId' => $dashBoardFilter->DsmId,
+                    'TradeProductId' => $dashBoardFilter->TradeProductId,
+                    'PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId,
+                    'ValueCenterId' => $dashBoardFilter->ValueCenterId,
+                    'CampaignId'  => $dashBoardFilter->CampaignId,
+                    'ClientId'=>$dashBoardFilter->ClientId])
+        ->groupBy(['CampaignId'])
+		->asArray()
+        ->all();
+		return isset($resume[0]) ? $resume[0] : [];
+    }
 
     /* Report distribution */
 
     public function getDashDistribution($dashBoardFilter) {
         $results = array();
-        $sale = Sale::find()->select(['SUM(Total)'])
-                ->innerJoin('gmid', 'gmid.GmidId = sale.GmidId')
-                ->innerJoin('trade_product', 'trade_product.TradeProductId = gmid.TradeProductId')
-                ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
-                ->innerJoin('client_seller', 'client_seller.ClientId = sale.ClientId ')
-                ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
-                ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
-                ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
-                ->andWhere(['CampaignId' => $dashBoardFilter->CampaignId]);
 
-        $query = new \yii\db\Query();
-        $forecast = $query->select(['             
-                                    SUM(isnull(JanuarySaleForecastUSD,0))+ SUM(isnull(FebruarySaleForecastUSD,0)) + SUM(isnull(MarchSaleForecastUSD,0)) AS Q1,
-                                    SUM(isnull(AprilSaleForecastUSD,0))+ SUM(isnull(MaySaleForecastUSD,0)) + SUM(isnull(JuneSaleForecastUSD,0)) AS Q2,
-                                    SUM(isnull(JulySaleForecastUSD,0))+ SUM(isnull(AugustSaleForecastUSD,0)) + SUM(isnull(SeptemberSaleForecastUSD,0)) AS Q3,
-                                    SUM(isnull(OctoberSaleForecastUSD,0))+ SUM(isnull(NovemberSaleForecastUSD,0)) + SUM(isnull(DecemberSaleForecastUSD,0)) AS Q4
-                                    '])
-                ->from('SaleWithForecast')
-                ->innerJoin('trade_product', 'trade_product.TradeProductId = SaleWithForecast.TradeProductId')
-                ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
-                ->innerJoin('client_seller', 'client_seller.ClientId = SaleWithForecast.ClientId ')
-                ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
-                ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
-                ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
+        // <--- inicio agregado--->
+        $query1 = new \yii\db\Query();
+        $sale = $query1->select(['SUM(totalSaleGraf)'])
+                ->from('TEMP_GRAFICO_2')
+        // <-- fin agregado --> 
+
+        // $sale = Sale::find()->select(['SUM(Total)'])
+                // ->innerJoin('gmid', 'gmid.GmidId = sale.GmidId')
+                // ->innerJoin('trade_product', 'trade_product.TradeProductId = gmid.TradeProductId')
+                // ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
+                // ->innerJoin('client_seller', 'client_seller.ClientId = sale.ClientId ')
+                // ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
+                // ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
+                // ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
+
                 ->andWhere(['CampaignId' => $dashBoardFilter->CampaignId]);
 
 
-        $cyo = Cyo::find()->select(['isnull(SUM(cyo.InventoryBalance*gmid.Price),0)'])
-                ->innerJoin('gmid', 'gmid.GmidId = cyo.GmidId')
-                ->innerJoin('trade_product', 'trade_product.TradeProductId = gmid.TradeProductId')
-                ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
-                ->innerJoin('client_seller', 'client_seller.ClientId = cyo.ClientId ')
-                ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
-                ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
-                ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
-                ->andWhere(['cyo.CampaignId' => $dashBoardFilter->CampaignId])
+        // <--- inicio agregado--->
+
+        $query2 = new \yii\db\Query();
+        $forecast = $query2->select(['
+            SUM(Q1) as Q1,
+            SUM(Q2) AS Q2,
+            SUM(Q3) AS Q3,
+            SUM(Q4) AS Q4,
+            CampaignId
+        '])
+        ->from('TEMP_GRAFICO_3')
+        // <-- fin agregado --> 
+
+
+
+        // $query = new \yii\db\Query();
+        // $forecast = $query->select(['             
+        //                             SUM(isnull(JanuarySaleForecastUSD,0))+ SUM(isnull(FebruarySaleForecastUSD,0)) + SUM(isnull(MarchSaleForecastUSD,0)) AS Q1,
+        //                             SUM(isnull(AprilSaleForecastUSD,0))+ SUM(isnull(MaySaleForecastUSD,0)) + SUM(isnull(JuneSaleForecastUSD,0)) AS Q2,
+        //                             SUM(isnull(JulySaleForecastUSD,0))+ SUM(isnull(AugustSaleForecastUSD,0)) + SUM(isnull(SeptemberSaleForecastUSD,0)) AS Q3,
+        //                             SUM(isnull(OctoberSaleForecastUSD,0))+ SUM(isnull(NovemberSaleForecastUSD,0)) + SUM(isnull(DecemberSaleForecastUSD,0)) AS Q4
+        //                             '])
+        //         ->from('SaleWithForecast')
+        //         ->innerJoin('trade_product', 'trade_product.TradeProductId = SaleWithForecast.TradeProductId')
+        //         ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
+        //         ->innerJoin('client_seller', 'client_seller.ClientId = SaleWithForecast.ClientId ')
+        //         ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
+        //         ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
+        //         ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
+
+
+                ->andWhere(['CampaignId' => $dashBoardFilter->CampaignId]);
+
+
+        // <--- inicio agregado--->
+        $query3 = new \yii\db\Query();
+        $cyo = $query3->select(['
+            isnull(SUM(totalCyOGraf),0),
+            CampaignId
+        '])
+        ->from('TEMP_GRAFICO_4')
+
+        // <-- fin agregado --> 
+
+
+        // $cyo = Cyo::find()->select(['isnull(SUM(cyo.InventoryBalance*gmid.Price),0)'])
+        //         ->innerJoin('gmid', 'gmid.GmidId = cyo.GmidId')
+        //         ->innerJoin('trade_product', 'trade_product.TradeProductId = gmid.TradeProductId')
+        //         ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
+        //         ->innerJoin('client_seller', 'client_seller.ClientId = cyo.ClientId ')
+        //         ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
+        //         ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
+        //         ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
+
+
+                ->andWhere(['CampaignId' => $dashBoardFilter->CampaignId])
         ;
        
 
         if ($dashBoardFilter->TradeProductId) {
-            $sale->andWhere(['trade_product.TradeProductId' => $dashBoardFilter->TradeProductId]);
-            $forecast->andWhere(['trade_product.TradeProductId' => $dashBoardFilter->TradeProductId]);
-            $cyo->andWhere(['trade_product.TradeProductId' => $dashBoardFilter->TradeProductId]);
+            $sale->andWhere(['TradeProductId' => $dashBoardFilter->TradeProductId]);
+            $forecast->andWhere(['TradeProductId' => $dashBoardFilter->TradeProductId]);
+            $cyo->andWhere(['TradeProductId' => $dashBoardFilter->TradeProductId]);
         }
         if ($dashBoardFilter->PerformanceCenterId) {
-            $sale->andWhere(['performance_center.PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId]);
-            $forecast->andWhere(['performance_center.PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId]);
-            $cyo->andWhere(['performance_center.PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId]);
+            $sale->andWhere(['PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId]);
+            $forecast->andWhere(['PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId]);
+            $cyo->andWhere(['PerformanceCenterId' => $dashBoardFilter->PerformanceCenterId]);
         }
         if ($dashBoardFilter->ValueCenterId) {
-            $sale->andWhere(['performance_center.ValueCenterId' => $dashBoardFilter->ValueCenterId]);
-            $forecast->andWhere(['performance_center.ValueCenterId' => $dashBoardFilter->ValueCenterId]);
-            $cyo->andWhere(['performance_center.ValueCenterId' => $dashBoardFilter->ValueCenterId]);
+            $sale->andWhere(['ValueCenterId' => $dashBoardFilter->ValueCenterId]);
+            $forecast->andWhere(['ValueCenterId' => $dashBoardFilter->ValueCenterId]);
+            $cyo->andWhere(['ValueCenterId' => $dashBoardFilter->ValueCenterId]);
         }
         if ($dashBoardFilter->ClientId) {
-            $sale->andWhere(['client_seller.ClientId' => $dashBoardFilter->ClientId]);
-            $forecast->andWhere(['client_seller.ClientId' => $dashBoardFilter->ClientId]);
-            $cyo->andWhere(['client_seller.ClientId' => $dashBoardFilter->ClientId]);
+            $sale->andWhere(['ClientId' => $dashBoardFilter->ClientId]);
+            $forecast->andWhere(['ClientId' => $dashBoardFilter->ClientId]);
+            $cyo->andWhere(['ClientId' => $dashBoardFilter->ClientId]);
         }
         if ($dashBoardFilter->SellerId) {
-            $sale->andWhere(['seller.UserId' => $dashBoardFilter->SellerId]);
-            $forecast->andWhere(['seller.UserId' => $dashBoardFilter->SellerId]);
-            $cyo->andWhere(['seller.UserId' => $dashBoardFilter->SellerId]);
+            $sale->andWhere(['UserIdSeller' => $dashBoardFilter->SellerId]);
+            $forecast->andWhere(['UserIdSeller' => $dashBoardFilter->SellerId]);
+            $cyo->andWhere(['UserIdSeller' => $dashBoardFilter->SellerId]);
         }
         if ($dashBoardFilter->DsmId) {
-            $sale->andWhere(['dsm.UserId' => $dashBoardFilter->DsmId]);
-            $forecast->andWhere(['dsm.UserId' => $dashBoardFilter->DsmId]);
-            $cyo->andWhere(['dsm.UserId' => $dashBoardFilter->DsmId]);
+            $sale->andWhere(['UserIdDSM' => $dashBoardFilter->DsmId]);
+            $forecast->andWhere(['UserIdDSM' => $dashBoardFilter->DsmId]);
+            $cyo->andWhere(['UserIdDSM' => $dashBoardFilter->DsmId]);
         }
         if ($dashBoardFilter->RsmId) {
-            $sale->andWhere(['rsm.UserId' => $dashBoardFilter->RsmId]);
-            $forecast->andWhere(['rsm.UserId' => $dashBoardFilter->RsmId]);
-            $cyo->andWhere(['rsm.UserId' => $dashBoardFilter->RsmId]);
+            $sale->andWhere(['UserIdRSM' => $dashBoardFilter->RsmId]);
+            $forecast->andWhere(['UserIdRSM' => $dashBoardFilter->RsmId]);
+            $cyo->andWhere(['UserIdRSM' => $dashBoardFilter->RsmId]);
         }
         
          // ESTAS SON LAS PIJAS QUE PIDEN A APURADAS
