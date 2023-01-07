@@ -18,7 +18,7 @@
             "username": "scmadmin",
             "password": "k2fXDMb5tR"
         }
-    }
+    },
     
     "require": {
         "php": ">=5.4.0",
