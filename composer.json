@@ -18,13 +18,7 @@
             "username": "scmadmin",
             "password": "k2fXDMb5tR"
         }
-    },
-     /*"repositories": [
-        {
-            "type": "svn",
-            "url": "http://svn.sglatam.com/scm/svn/Kendo/trunk"
-        }
-    ],*/
+    }
     
     "require": {
         "php": ">=5.4.0",
@@ -33,7 +27,6 @@
         "yiisoft/yii2-swiftmailer": "*",
         "yiisoft/yii2-jui": "2.0.*@dev",
         "fxp/composer-asset-plugin":"1.0.0",
-        //"Kendo": "@dev",
         "phpoffice/phpexcel": "dev-master"        
     },
     "require-dev": {
