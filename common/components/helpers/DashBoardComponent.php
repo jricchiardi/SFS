@@ -45,5 +45,6 @@ class DashBoardComponent extends Component implements IDashBoard
         $results['profit'] = Forecast::getDashProfit($dashBoardFilter);
 
         return $results;
+        
     }
 }
