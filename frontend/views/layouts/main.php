@@ -73,7 +73,8 @@ AppAsset::register($this);
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <p class="pull-center">Copyright &copy; The Dow Chemical Company (1995-<?= date('Y') ?>). All Rights Reserved.<br></p>
+                    <p class="pull-center">Version Demo SFS. 2023.<br></p>
+            <!--Copyright &copy; The Dow Chemical Company (1995- date('Y') ?>). All Rights Reserved.-->
                     </div>
                 </div>
             </div>
