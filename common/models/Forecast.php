@@ -230,33 +230,33 @@ class Forecast extends \yii\db\ActiveRecord {
 
         // <--- inicio agregado--->
 
-        $query2 = new \yii\db\Query();
-        $forecast = $query2->select(['
-            SUM(Q1) as Q1,
-            SUM(Q2) AS Q2,
-            SUM(Q3) AS Q3,
-            SUM(Q4) AS Q4,
-            CampaignId
-        '])
-        ->from('TEMP_GRAFICO_3')
+        // $query2 = new \yii\db\Query();
+        // $forecast = $query2->select(['
+        //     SUM(Q1) as Q1,
+        //     SUM(Q2) AS Q2,
+        //     SUM(Q3) AS Q3,
+        //     SUM(Q4) AS Q4,
+        //     CampaignId
+        // '])
+        // ->from('TEMP_GRAFICO_3')
         // <-- fin agregado --> 
 
 
 
-        // $query = new \yii\db\Query();
-        // $forecast = $query->select(['             
-        //                             SUM(isnull(JanuarySaleForecastUSD,0))+ SUM(isnull(FebruarySaleForecastUSD,0)) + SUM(isnull(MarchSaleForecastUSD,0)) AS Q1,
-        //                             SUM(isnull(AprilSaleForecastUSD,0))+ SUM(isnull(MaySaleForecastUSD,0)) + SUM(isnull(JuneSaleForecastUSD,0)) AS Q2,
-        //                             SUM(isnull(JulySaleForecastUSD,0))+ SUM(isnull(AugustSaleForecastUSD,0)) + SUM(isnull(SeptemberSaleForecastUSD,0)) AS Q3,
-        //                             SUM(isnull(OctoberSaleForecastUSD,0))+ SUM(isnull(NovemberSaleForecastUSD,0)) + SUM(isnull(DecemberSaleForecastUSD,0)) AS Q4
-        //                             '])
-        //         ->from('SaleWithForecast')
-        //         ->innerJoin('trade_product', 'trade_product.TradeProductId = SaleWithForecast.TradeProductId')
-        //         ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
-        //         ->innerJoin('client_seller', 'client_seller.ClientId = SaleWithForecast.ClientId ')
-        //         ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
-        //         ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
-        //         ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
+        $query = new \yii\db\Query();
+        $forecast = $query->select(['             
+                                    SUM(isnull(JanuarySaleForecastUSD,0))+ SUM(isnull(FebruarySaleForecastUSD,0)) + SUM(isnull(MarchSaleForecastUSD,0)) AS Q1,
+                                    SUM(isnull(AprilSaleForecastUSD,0))+ SUM(isnull(MaySaleForecastUSD,0)) + SUM(isnull(JuneSaleForecastUSD,0)) AS Q2,
+                                    SUM(isnull(JulySaleForecastUSD,0))+ SUM(isnull(AugustSaleForecastUSD,0)) + SUM(isnull(SeptemberSaleForecastUSD,0)) AS Q3,
+                                    SUM(isnull(OctoberSaleForecastUSD,0))+ SUM(isnull(NovemberSaleForecastUSD,0)) + SUM(isnull(DecemberSaleForecastUSD,0)) AS Q4
+                                    '])
+                ->from('SaleWithForecast')
+                ->innerJoin('trade_product', 'trade_product.TradeProductId = SaleWithForecast.TradeProductId')
+                ->innerJoin('performance_center', 'performance_center.PerformanceCenterId = trade_product.PerformanceCenterId')
+                ->innerJoin('client_seller', 'client_seller.ClientId = SaleWithForecast.ClientId ')
+                ->innerJoin('user' . ' seller', 'seller.UserId=client_seller.SellerId')
+                ->innerJoin('user' . ' dsm', 'dsm.UserId = seller.ParentId')
+                ->innerJoin('user' . ' rsm', 'rsm.UserId = dsm.ParentId')
 
 
                 ->andWhere(['CampaignId' => $dashBoardFilter->CampaignId]);

@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'sfsspa01'
           slot-name: 'dev'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8288B86A1A6346799BD355B68A0FE2F6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_632629EA2B51439D8ECCAE068E0D661E }}
           package: .
