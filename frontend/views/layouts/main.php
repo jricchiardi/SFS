@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
+use frontend\assets\KendoAsset;
 use frontend\assets\PlaceHolderAsset;
 use frontend\widgets\Alert;
 use kartik\widgets\AlertBlock;
@@ -10,7 +11,7 @@ use kartik\widgets\AlertBlock;
 /* @var $content string */
 
 AppAsset::register($this);
-\Kendo\KendoAsset::register($this);
+KendoAsset::register($this);
 ?>
 
 <!DOCTYPE html>

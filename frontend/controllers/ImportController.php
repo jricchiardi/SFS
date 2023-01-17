@@ -20,7 +20,7 @@ use common\models\UploadForm;
 use common\models\UploadValidacionPlanForm;
 use PHPExcel_IOFactory;
 use Yii;
-use yii\base\Object;
+// use yii\base\Object;
 use yii\web\UploadedFile;
 
 require_once Yii::$app->basePath . '/spout-3.1.0/src/Spout/Autoloader/autoload.php';

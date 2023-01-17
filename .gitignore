@@ -3,3 +3,5 @@
 /console/importacion_automatica_sap/das/archivos_importados/*
 /console/importacion_automatica_sap/dupont/archivos_importados/*
 vendor.zip
+/console/runtime/logs/*
+/frontend/web/assets/*

@@ -40,11 +40,18 @@ class User extends ActiveRecordCustom implements IdentityInterface {
 
     public $Temporal = false;
 
+    // /**
+    //  * @inheritdoc
+    //  */
+    // public static function tableName() {
+    //     return '{{%user}}';
+    // }
     /**
-     * @inheritdoc
+     * @return string the name of the table associated with this ActiveRecord class.
      */
-    public static function tableName() {
-        return '{{%user}}';
+    public static function tableName()
+    {
+        return '{{user}}';
     }
 
     /**
