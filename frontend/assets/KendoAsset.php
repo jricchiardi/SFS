@@ -2,6 +2,7 @@
 
 namespace frontend\assets;
 
+
 set_time_limit(120);
 
 use yii\web\AssetBundle;
