@@ -38,16 +38,17 @@ class DashBoardComponent extends Component implements IDashBoard
         $results['lastDateAutomaticDupontSale'] = Import::getLastDateAutomaticDupontSale();
         $results['lastDateAutomaticDASCyo'] = Import::getLastDateAutomaticDASCyo();
         $results['lastDateAutomaticDupontCyo'] = Import::getLastDateAutomaticDupontCyo();
-        $results['campaigns'] = (new Campaign)->getAll($dashBoardFilter);
         
         // HARCODEADO PARA LA DEMO PORQUE ESTA LENTO EN AZURE
+        $results['campaigns'] = [];
         $results['sales'] = [];
-        $results['distribution']['sale'] = [];
-        $results['distribution']['forecast'] = [];
-        $results['distribution']['cyo'] = [];
+        $results['distribution']['sale'] = 100.0;
+        $results['distribution']['forecast'] = 200.0;
+        $results['distribution']['cyo'] = 300.0;
         $results['resume'] = [];
-        $results['profit'] = 1000;
+        $results['profit'] = 1.5;
         
+        // $results['campaigns'] = (new Campaign)->getAll($dashBoardFilter);
         // $results['sales'] = Sale::getDashHistorySales($dashBoardFilter);
         
         // $forecast = new Forecast;
