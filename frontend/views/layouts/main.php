@@ -7,6 +7,7 @@ use frontend\assets\PlaceHolderAsset;
 use frontend\widgets\Alert;
 use kartik\widgets\AlertBlock;
 
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 
