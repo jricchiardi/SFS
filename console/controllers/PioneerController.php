@@ -2,7 +2,7 @@
 
 namespace console\controllers;
 
-use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
+use OpenSpout\Reader\Common\Creator\ReaderEntityFactory;
 use common\models\Client;
 use common\models\User;
 use common\services\ImportPioneerService;

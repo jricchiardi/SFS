@@ -2,8 +2,8 @@
 
 namespace common\services;
 
-use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
-use Box\Spout\Reader\CSV\Reader;
+use OpenSpout\Reader\Common\Creator\ReaderEntityFactory;
+use OpenSpout\Reader\CSV\Reader;
 use common\models\Import;
 use common\models\sap\DelivOpenOrders;
 use common\models\sap\Elemento;

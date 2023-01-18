@@ -2,8 +2,8 @@
 
 namespace common\services;
 
-use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
-use Box\Spout\Reader\CSV\Reader;
+use OpenSpout\Reader\Common\Creator\ReaderEntityFactory;
+use OpenSpout\Reader\CSV\Reader;
 use common\models\Campaign;
 use common\models\Import;
 use common\models\sap\ClienteUnificado;
@@ -235,7 +235,7 @@ abstract class AutoSapImportService
         return [];
     }
     /**
-     * @return \Box\Spout\Reader\ReaderInterface
+     * @return \OpenSpout\Reader\ReaderInterface
      */
     protected function createReader($pathFile)
     {

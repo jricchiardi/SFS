@@ -2,10 +2,10 @@
 
 namespace frontend\controllers;
 
-use Box\Spout\Common\Entity\Style\CellAlignment;
-use Box\Spout\Writer\Common\Creator\Style\BorderBuilder;
-use Box\Spout\Writer\Common\Creator\Style\StyleBuilder;
-use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
+use OpenSpout\Common\Entity\Style\CellAlignment;
+use OpenSpout\Writer\Common\Creator\Style\BorderBuilder;
+use OpenSpout\Writer\Common\Creator\Style\StyleBuilder;
+use OpenSpout\Writer\Common\Creator\WriterEntityFactory;
 use common\components\controllers\CustomController;
 use common\models\Import;
 use common\models\TypeImport;

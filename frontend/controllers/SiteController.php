@@ -85,11 +85,7 @@ class SiteController extends Controller {
                                                          'TypeAuditId' => \common\models\TypeAudit::TYPE_LOGIN,
                                                         ]);
 
-                if (Yii::$app->user->identity->authAssignment->item_name === AuthItem::ROLE_ADMIN) {
-                    return $this->redirect(['/product']);
-                }
-                
-                                                        if (Yii::$app->user->identity->authAssignment->item_name === AuthItem::ROLE_PM) {
+                if (Yii::$app->user->identity->authAssignment->item_name === AuthItem::ROLE_PM) {
                     return $this->redirect(['/forecast-marketing']);
                 }
 				

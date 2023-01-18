@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
+use OpenSpout\Writer\Common\Creator\WriterEntityFactory;
 use common\components\controllers\CustomController;
 use common\components\models\FilterReporteSegmentoComercio;
 use common\components\models\FilterReporteSegmentoComercioResultados;
