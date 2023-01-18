@@ -40,7 +40,8 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-center">Copyright &copy; The Dow Chemical Company (1995-<?= date('Y') ?>). All Rights Reserved.<br></p>
+            <p class="pull-center">Version Demo SFS. 2023.<br></p> 
+            <!--Copyright &copy; The Dow Chemical Company (1995-<?= date('Y') ?>). All Rights Reserved.-->
         </div>
     </footer>
 	

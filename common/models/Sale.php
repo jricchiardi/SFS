@@ -86,7 +86,7 @@ class Sale extends \yii\db\ActiveRecord
     
     public static function getDashHistorySales($dashBoardFilter)
     {
-        $campaigns = \common\models\Campaign::getAll();    
+        $campaigns = (new \common\models\Campaign)->getAll();    
         $sales = array();
         foreach ($campaigns as $campaign) 
         {
