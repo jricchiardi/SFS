@@ -2,7 +2,7 @@
 
 namespace common\services;
 
-use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
+use OpenSpout\Reader\Common\Creator\ReaderEntityFactory;
 use common\models\AuthAssignment;
 use common\models\Client;
 use common\models\ClientMarketing;

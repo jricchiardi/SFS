@@ -2,13 +2,13 @@
 
 namespace frontend\controllers;
 
-use Box\Spout\Common\Entity\Style\Border;
-use Box\Spout\Common\Entity\Style\CellAlignment;
-use Box\Spout\Common\Entity\Style\Color;
-use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
-use Box\Spout\Writer\Common\Creator\Style\BorderBuilder;
-use Box\Spout\Writer\Common\Creator\Style\StyleBuilder;
-use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
+use OpenSpout\Common\Entity\Style\Border;
+use OpenSpout\Common\Entity\Style\CellAlignment;
+use OpenSpout\Common\Entity\Style\Color;
+use OpenSpout\Reader\Common\Creator\ReaderEntityFactory;
+use OpenSpout\Writer\Common\Creator\Style\BorderBuilder;
+use OpenSpout\Writer\Common\Creator\Style\StyleBuilder;
+use OpenSpout\Writer\Common\Creator\WriterEntityFactory;
 use common\components\controllers\CustomController;
 use common\models\Campaign;
 use common\models\DownloadValidacionPlanForm;

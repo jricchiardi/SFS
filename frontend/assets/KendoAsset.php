@@ -9,7 +9,7 @@ use yii\web\AssetBundle;
 
 class KendoAsset extends AssetBundle
 {
-    public $sourcePath = '@frontend/Kendo/assets/';
+    public $sourcePath = '@vendor/podium/Kendo/assets/';
     
     public $css = [
         'styles/kendo.common.min.css',
