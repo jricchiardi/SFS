@@ -4,7 +4,9 @@
                     aria-hidden="true">&times;</span></button>
         <a href="#"><i class="glyphicon glyphicon-exclamation-sign"></i>&nbsp;
 
-            <?= Yii::t('app', 'Last Date of Update: DAS CyO: {dasCyo} - Dupont CyO: {dupontCyo} - DAS Sales: {dasSale} - Dupont Sales: {dupontSale}', [
+        <?= Yii::t('app', 'Last Date of Update: CyO: {dupontCyo} - Sales: {dupontSale}', [
+            //<?= Yii::t('app', 'Last Date of Update: DAS CyO: {dasCyo} - Dupont CyO: {dupontCyo} - DAS Sales: {dasSale} - Dupont Sales: {dupontSale}', [
+                
                 'dasCyo' => Yii::$app->formatter->asDatetime($results['lastDateAutomaticDASCyo'], "php:d-m-Y H:i:s"),
                 'dupontCyo' => Yii::$app->formatter->asDatetime($results['lastDateAutomaticDupontCyo'], "php:d-m-Y H:i:s"),
                 'dasSale' => Yii::$app->formatter->asDatetime($results['lastDateAutomaticDASSale'], "php:d-m-Y H:i:s"),

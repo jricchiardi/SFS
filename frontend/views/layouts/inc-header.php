@@ -177,7 +177,7 @@ use yii\helpers\Url;
             </div>
         </div>
     </div>
-    <!--<div class="notifications-panel">
+    <div class="notifications-panel">
         <?php echo $notifications; ?>
-    </div>-->
+    </div>
 </header>

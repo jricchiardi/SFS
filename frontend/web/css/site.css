@@ -182,11 +182,12 @@ header .container {
     text-align: center;
 }
 .user:hover {
-    background: #69df37;
-    color: #919FAC;
+    background: #048811;
+    color: #ffffff;
 }
 .menu:hover {
-    background: #69df37;
+    background: #048811;
+    color: #ffffff
 }
 .header-login-forgot {
     text-align: center;
@@ -517,7 +518,7 @@ span.customSelect select {
 }
 .navbar {
     overflow-y: auto;
-    background: #518872;
+    background: #5c7262;
     border-radius: 0;
     margin: 0;
     padding: 10px;
@@ -590,7 +591,7 @@ span.customSelect select {
     color: white;
 }
 .notifications-panel {
-    background: #ef5145;
+    background: #3d964a;
     display: none;
     padding: 20px;
     position: absolute;
@@ -973,10 +974,10 @@ body > div.container.full-width > div:nth-child(2) > div.col-xs-12.col-sm-12.col
 .nav > li > a:focus {
     background: transparent;
     border-color: white;
-    color: #4395e2;
+    color: #43e285;
 }
 .nav > li > a:hover {
-    color: #1a62a5;
+    color: #1aa560;
 }
 .nav-bordered > li {
     border-bottom: 1px solid #e5e5e5;
