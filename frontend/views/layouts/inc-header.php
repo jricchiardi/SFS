@@ -81,11 +81,11 @@ use yii\helpers\Url;
             $menuItems[] = ['label' => 'Test reporte segmento negocio', 'url' => ['/test/reporte-segmento-negocio']];
             $menuItems[] = ['label' => 'Importar Oportunidad', 'url' => ['/import/opportunity']];
             $menuItems[] = ['label' => 'Importar Selling Out', 'url' => ['/import/selling-out']];
-            $menuItems[] = ['label' => 'Importe automatico de SAP', 'url' => ['/check-auto-sap-import']];
+            //$menuItems[] = ['label' => 'Importe automatico de SAP', 'url' => ['/check-auto-sap-import']];
             $menuItems[] = ['label' => 'Importar Unificación de Clientes', 'url' => ['/import/unificacion-cliente']];
             $menuItems[] = ['label' => 'Importar Asociación PM Producto', 'url' => ['/import/association-pm-product']];
             $menuItems[] = ['label' => Yii::t('app', 'Consolid Export Marketing'), 'url' => ['/forecast-marketing/export-report-consolid']];
-            $menuItems[] = ['label' => 'Clientes Pioneer', 'url' => ['/pioneer-client']];
+            //$menuItems[] = ['label' => 'Clientes Pioneer', 'url' => ['/pioneer-client']];
         }
 
         if (Yii::$app->user->can(AuthItem::ROLE_SIS_ADMIN)) {
@@ -177,7 +177,7 @@ use yii\helpers\Url;
             </div>
         </div>
     </div>
-    <div class="notifications-panel">
+    <!--<div class="notifications-panel">
         <?php echo $notifications; ?>
-    </div>
+    </div>-->
 </header>

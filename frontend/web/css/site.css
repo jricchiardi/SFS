@@ -151,17 +151,17 @@ header .container {
     padding: 10px;
 }
 .notifications {
-    background: #ef5145;
+    background: #69df37;
     color: white;
 }
 .notifications:hover {
-    background: #be1d10;
+    background: #048811;
     color: white;
     text-decoration: none;
 }
 .notifications:focus,
 .notifications:active {
-    background: #ef5145;
+    background: #69df37;
     color: white;
     text-decoration: none;
 }
@@ -182,11 +182,11 @@ header .container {
     text-align: center;
 }
 .user:hover {
-    background: #acd6e4;
+    background: #69df37;
     color: #919FAC;
 }
 .menu:hover {
-    background: #acd6e4;
+    background: #69df37;
 }
 .header-login-forgot {
     text-align: center;
@@ -517,7 +517,7 @@ span.customSelect select {
 }
 .navbar {
     overflow-y: auto;
-    background: #455264;
+    background: #518872;
     border-radius: 0;
     margin: 0;
     padding: 10px;
@@ -525,7 +525,7 @@ span.customSelect select {
     right: -240px;
     top: 0px;
     bottom: 0;
-    width: 240px;
+    width: 260px;
     z-index: 99999999;
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;

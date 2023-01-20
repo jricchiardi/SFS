@@ -23,7 +23,7 @@ use Yii;
 // use yii\base\Object;
 use yii\web\UploadedFile;
 
-require_once Yii::$app->basePath . '/spout-3.1.0/src/Spout/Autoloader/autoload.php';
+//require_once Yii::$app->basePath . '/spout-3.1.0/src/Spout/Autoloader/autoload.php';
 
 /**
  * ImportController implements the CRUD actions for Client model.
