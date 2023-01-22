@@ -54,8 +54,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 height: 600,
                 columns: [
                     {
-                        field: "DowUserId",
-                        title: "<?= Yii::t('app', 'DowUserId') ?>"
+                        field: "UserId",
+                        title: "<?= Yii::t('app', 'UserId') ?>"
                     },
                     {
                         field: "Username",
